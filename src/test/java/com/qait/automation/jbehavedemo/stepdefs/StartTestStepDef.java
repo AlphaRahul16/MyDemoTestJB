@@ -18,7 +18,7 @@ public class StartTestStepDef {
     public void beforeIHaveLaunchedTheApplication() {
         test = new TestSessionInitiator();
         test.launchApplication(getData("app_url"));
-
+        test.homepage.selectAllDataBases();
     }
 
     @Given("I am on homepage")

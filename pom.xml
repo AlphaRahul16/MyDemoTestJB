@@ -7,13 +7,13 @@
 	<groupId>com.qait.automation</groupId>
 	<artifactId>JIRA-JBehave-Demo</artifactId>
 	<version>0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<seleniumver>2.53.1</seleniumver>
+		<seleniumver>2.53.0</seleniumver>
 	</properties>
 
 	<build>
