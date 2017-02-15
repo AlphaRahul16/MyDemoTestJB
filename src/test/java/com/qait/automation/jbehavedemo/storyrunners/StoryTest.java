@@ -106,7 +106,7 @@ public class StoryTest extends JUnitStories {
 				.useStoryReporterBuilder(new StoryReporterBuilder()
 						.withCodeLocation(CodeLocations.codeLocationFromClass(embeddableClass)).withDefaultFormats()
 						.withPathResolver(new FilePrintStreamFactory.ResolveToPackagedName())
-						.withViewResources(viewResources).withFormats(Format.ANSI_CONSOLE, Format.XML)
+						.withViewResources(viewResources).withFormats(Format.CONSOLE, Format.HTML, Format.XML)
 						.withFailureTrace(true).withFailureTraceCompression(true).withCrossReference(xref))
 				.useParameterConverters(parameterConverters).useStepMonitor(xref.getStepMonitor());
 	}

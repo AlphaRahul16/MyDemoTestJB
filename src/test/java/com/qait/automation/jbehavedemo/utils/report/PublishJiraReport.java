@@ -137,10 +137,10 @@ public class PublishJiraReport {
 				response = new HttpClient().postHttpResponse(jiratransitionurl, getFailedJiraTicketJson())
 						.getEntity(String.class);
 
-				getChangeAssigneeJson("automation-script");
+				getChangeAssigneeJson("prashantshukla");
 			} catch (UniformInterfaceException e) {
 				// e.printStackTrace();
-				getChangeAssigneeJson("automation-script");
+				getChangeAssigneeJson("prashantshukla");
 			}
 			System.out.println("\nREOPENING JIRA TICKET:- " + _jiraStoryId + "\n");
 			return response;
@@ -189,11 +189,11 @@ public class PublishJiraReport {
 	}
 
 	private String getCloseTicketJson() {
-		return "{ \"transition\": { \"id\": \"701\" }}";
+		return "{ \"transition\": { \"id\": \"31\" }}";
 	}
 
 	private String getFailedJiraTicketJson() {
-		return "{ \"transition\": { \"id\": \"3\" }}";
+		return "{ \"transition\": { \"id\": \"11\" }}";
 
 	}
 

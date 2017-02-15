@@ -5,11 +5,11 @@ import java.util.List;
 
 public final class Constants {
 
-    public static final String JIRA_URL = System.getProperty("jirahost", "http://10.0.31.199:8080/");
+    public static final String JIRA_URL = System.getProperty("jirahost", "http://10.0.31.226:8080/");
     public static final String JIRA_USERNAME = "pshukla";
     public static final String JIRA_PASSWORD = "Qait@123";
 
-    public static final String JIRA_PROJECT_ID = "EBDEMO";
+    public static final String JIRA_PROJECT_ID = "DEMO";
 
     public static final String JIRA_PATH_RAPIDVIEW = "rest/greenhopper/1.0/xboard/work/allData.json?rapidViewId=";
     public static final String JIRA_PATH_JBEHAVE_STORY = "rest/jbehave-for-jira/1.0/find/for-issue/";
