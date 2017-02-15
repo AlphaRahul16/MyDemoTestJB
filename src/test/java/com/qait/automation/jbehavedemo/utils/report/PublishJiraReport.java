@@ -107,10 +107,10 @@ public class PublishJiraReport {
 			// update JIRA only if execEnv is QA
 			if (System.getProperty("execEnv", "dev").equalsIgnoreCase("qa")) {
 
-//				System.out.println(this.createJiraCommentJson(jiraStoryId));
+				// System.out.println(this.createJiraCommentJson(jiraStoryId));
 				response = response + client.postHttpResponse(jiracommenturl, this.createJiraCommentJson(jiraStoryId))
 						.getEntity(String.class) + "\n";
-//				System.out.println(response);
+				// System.out.println(response);
 				moveJiraTicket(jiraStoryId, this.storyStatus);
 			} else {
 				System.out.println("=================================================");
@@ -137,10 +137,10 @@ public class PublishJiraReport {
 				response = new HttpClient().postHttpResponse(jiratransitionurl, getFailedJiraTicketJson())
 						.getEntity(String.class);
 
-				getChangeAssigneeJson("prashantshukla");
+				// getChangeAssigneeJson("Unassigned");
+				changeJiraAssignee(_jiraStoryId, "developer");
 			} catch (UniformInterfaceException e) {
-				// e.printStackTrace();
-				getChangeAssigneeJson("prashantshukla");
+				changeJiraAssignee(_jiraStoryId, "developer");
 			}
 			System.out.println("\nREOPENING JIRA TICKET:- " + _jiraStoryId + "\n");
 			return response;
@@ -174,7 +174,7 @@ public class PublishJiraReport {
 		String response = "";
 		String jiraassgineeurl = Constants.JIRA_URL + Constants.JIRA_ISSUE + _jiraStoryId + "/"
 				+ Constants.JIRA_ASSIGNEE;
-
+		System.out.println(jiraassgineeurl);
 		try {
 			response = new HttpClient().putHttpResponse(jiraassgineeurl, getChangeAssigneeJson(jiraUserName))
 					.getEntity(String.class);
