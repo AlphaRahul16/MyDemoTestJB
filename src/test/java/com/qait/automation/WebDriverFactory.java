@@ -73,7 +73,6 @@ public class WebDriverFactory {
     }
 
     private static WebDriver getChromeDriver(String driverpath) {
-        System.setProperty("webdriver.chrome.driver", driverpath);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("chrome.switches","--disable-extensions");
         DesiredCapabilities cap = DesiredCapabilities.chrome();
@@ -82,7 +81,6 @@ public class WebDriverFactory {
     }
 
     private static WebDriver getInternetExplorerDriver(String driverpath) {
-        System.setProperty("webdriver.ie.driver", driverpath);
         capabilities.setCapability("ignoreZoomSetting", true);
         return new InternetExplorerDriver(capabilities);
     }
