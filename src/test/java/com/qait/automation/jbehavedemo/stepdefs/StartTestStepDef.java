@@ -75,6 +75,11 @@ public class StartTestStepDef {
     public void thenICantSeeMessageInTheSearchResultsPage() {
         test.thesauruspage.verifySearchResult();
     }
+    
+    @Then("I see the error message")
+    public void thenICantSeeMessageInTheSearchResultsPage() {
+        
+    }
 
     @AfterScenario
     public void quitBrowserSession() {
