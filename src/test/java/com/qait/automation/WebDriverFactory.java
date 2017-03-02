@@ -28,7 +28,8 @@ public class WebDriverFactory {
 
         if (seleniumconfig.get("seleniumserver").equalsIgnoreCase("local")) {
             if (browser.equalsIgnoreCase("firefox")) {
-                return getFirefoxDriver();
+                return getFirefoxDriver(seleniumconfig.get(
+                        "driverpath"));
             } else if (browser.equalsIgnoreCase("chrome")) {
                 return getChromeDriver(seleniumconfig.get(
                         "driverpath"));
@@ -73,6 +74,7 @@ public class WebDriverFactory {
     }
 
     private static WebDriver getChromeDriver(String driverpath) {
+		System.setProperty("webdriver.chrome.driver", driverpath);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("chrome.switches","--disable-extensions");
         DesiredCapabilities cap = DesiredCapabilities.chrome();
@@ -89,7 +91,8 @@ public class WebDriverFactory {
         return new SafariDriver();
     }
 
-    private static WebDriver getFirefoxDriver() {
+    private static WebDriver getFirefoxDriver(String driverpath) {
+    	System.setProperty("webdriver.gecko.driver",driverpath);
         FirefoxProfile profile = new FirefoxProfile();
         profile.setPreference("browser.cache.disk.enable", false);
         return new FirefoxDriver(profile);

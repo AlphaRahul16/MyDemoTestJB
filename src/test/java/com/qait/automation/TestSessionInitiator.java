@@ -104,13 +104,12 @@ public class TestSessionInitiator {
 
 	public void closeBrowserSession() {
 		System.out.println("\n");
-		// driver.quit();
 		driver.close();
+		driver.quit();
 	}
 
 	public void closeTestSession() {
 		closeBrowserSession();
 	}
 
-	
 }

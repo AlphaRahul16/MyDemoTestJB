@@ -15,6 +15,7 @@ import com.qait.automation.jbehavedemo.getstory.Constants;
 import com.qait.automation.utils.FileHandler;
 import com.qait.automation.utils.HttpClient;
 import com.qait.automation.utils.StoryXMLParser;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.UniformInterfaceException;
 
 import static com.qait.automation.utils.TestStates.*;
@@ -171,15 +172,17 @@ public class PublishJiraReport {
 	}
 
 	private String changeJiraAssignee(String _jiraStoryId, String jiraUserName) {
+		ClientResponse clientResponse = null;
 		String response = "";
 		String jiraassgineeurl = Constants.JIRA_URL + Constants.JIRA_ISSUE + _jiraStoryId + "/"
 				+ Constants.JIRA_ASSIGNEE;
 		System.out.println(jiraassgineeurl);
 		try {
-			response = new HttpClient().putHttpResponse(jiraassgineeurl, getChangeAssigneeJson(jiraUserName))
-					.getEntity(String.class);
+			clientResponse = new HttpClient().putHttpResponse(jiraassgineeurl, getChangeAssigneeJson(jiraUserName));
+			response = clientResponse.getEntity(String.class);
 		} catch (UniformInterfaceException e) {
-			e.printStackTrace();
+			if (!(clientResponse.getStatus() == 204))
+				e.printStackTrace();
 		}
 		return response;
 	}
